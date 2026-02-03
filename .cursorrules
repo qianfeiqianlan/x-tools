@@ -1,0 +1,44 @@
+# Cursor Rules - AI 原生 React Boilerplate
+
+这是一个 AI 原生的 React 前端样板，所有开发规则都在 `.ai/` 目录中定义。
+
+## 规则系统
+
+### 核心规则（始终启用）
+
+- `.ai/00-core.md` - 系统核心规则（不可违反）：目标、设计原则、AI 友好约定、禁止项、技术选型
+- `.ai/10-architecture.md` - 架构规则：目录职责、目录结构、数据流、Feature 模式、状态归属、错误处理
+- `.ai/20-api-state.md` - API 与状态约束：请求层、Zustand、路由与鉴权
+- `.ai/30-ui-engineering.md` - UI 与工程化：界面风格、工程化要求、Boilerplate 默认能力
+
+### 任务 Playbook（按需加载）
+
+当任务意图匹配时，加载对应的 playbook：
+
+- `.ai/90-task-playbooks/add-feature.md` - 添加新 feature / 新模块 / 新业务域
+
+### 速查与模板
+
+- `.ai/conventions.md` - 命名、路径、请求、状态、路由、样式等约定速查
+- `.ai/feature-template.md` - 新增 feature 的详细模板与代码示例
+
+## 开发原则
+
+1. **规则优先**：所有规则文件都是可执行的，不是描述性的；生成或修改代码前必须遵守。
+2. **MUST / MUST NOT**：规则使用明确的命令式语言；违反即视为错误。
+3. **模块化**：规则按层次组织，可独立引用。
+4. **AI 友好**：规则为 AI 工具优化，易于理解和执行。
+
+## 快速参考
+
+- 添加新 feature：参考 `.ai/90-task-playbooks/add-feature.md` 与 `.ai/feature-template.md`
+- 架构与目录：参考 `.ai/10-architecture.md`
+- 约定速查：参考 `.ai/conventions.md`
+
+## 重要提醒
+
+- 所有请求必须经 `@/lib/http`，禁止新建 axios 实例或请求层
+- 所有全局状态仅用 Zustand，store 按 feature 放在 `features/<name>/store.ts`
+- 禁止跨 feature 内部引用（不 import 其他 feature 的 api/store/types）
+- 受保护路由使用 `ProtectedRoute`，未登录重定向 `/login`
+- 每个 feature 必须包含：`api.ts`、`store.ts`、`types.ts`、`pages/`
