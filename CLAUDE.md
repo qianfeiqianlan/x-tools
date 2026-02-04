@@ -75,12 +75,20 @@ src/
 
 ---
 
+## 产品定位（工具类网站）
+
+本项目同时面向**工具类网站**产品：高效、实用、极简；单页单工具，输入→操作→结果闭环；支持四类核心工具（URL 编解码、JSON 格式化、文本对比、世界时间）及扩展。产品需求与设计约束见 `.ai/40-product-requirements.md`，来源见根目录 `command.md`。
+
+---
+
 ## 文档索引
 
-- **架构与数据流**：`ARCHITECTURE.md`
+- **架构与数据流**：`ARCHITECTURE.md`（详细规则在 `.ai/10-architecture.md`）
+- **产品需求与需求清单**：`.ai/40-product-requirements.md`（含开发优先级 P0/P1/P2/P3）
 - **使用与脚本**：`README.md`
 - **Cursor 编码规则**：`.cursorrules`
 - **AI 上下文（本文件）**：`CLAUDE.md`
-- **更多 AI 提示与模板**：`.ai/` 目录
+- **规则与 Playbook 总览**：`.ai/README.md`
+- **添加工具页**：`.ai/90-task-playbooks/add-tool-page.md`
 
-生成或修改任何代码前，请优先遵循上述目录结构和约定，以保持项目对 AI 与人类开发者一致、可预测。
+生成或修改任何代码前，请优先遵循上述目录结构和约定；做工具类功能时须同时遵守 `.ai/40-product-requirements.md`，以保持项目对 AI 与人类开发者一致、可预测。

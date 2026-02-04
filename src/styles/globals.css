@@ -2,16 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 工具类产品视觉 - 浅色/深色两套，与 .ai/40-product-requirements.md 对齐 */
 :root {
-  --bg: #f8fafc;
-  --text: #1e293b;
+  --bg: #f8f9fa;
+  --text: #212529;
+  --text-secondary: #6c757d;
+  --accent: #165dff;
   --border: #e2e8f0;
+  --success: #00b42a;
+  --error: #f53f3f;
+  --warn: #ff7d00;
+  --input-bg: #ffffff;
+  --card-bg: #ffffff;
+}
+
+.dark {
+  --bg: #121212;
+  --text: #e0e0e0;
+  --text-secondary: #909090;
+  --accent: #4d89ff;
+  --border: #333;
+  --success: #00b42a;
+  --error: #f53f3f;
+  --warn: #ff7d00;
+  --input-bg: #1e1e1e;
+  --card-bg: #1e1e1e;
 }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: Inter, Roboto, "PingFang SC", system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
+}
+
+/* 代码/结果区等宽字体 */
+.font-mono-code {
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  font-size: 13px;
 }

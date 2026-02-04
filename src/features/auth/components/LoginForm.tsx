@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { login } from "../api";
 import { useAuthStore } from "../store";
+import type { LoginResult } from "../types";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 
@@ -26,7 +27,7 @@ export function LoginForm({ onSuccess, onCancel, showCancel }: LoginFormProps) {
     setLoading(true);
     try {
       const res = await login({ username, password });
-      const token = (res as { token: string }).token;
+      const token = (res as unknown as LoginResult).token;
       setToken(token);
       onSuccess?.();
     } catch (err) {

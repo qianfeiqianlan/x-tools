@@ -4,6 +4,7 @@
 import { useEffect } from "react";
 import { getUserList } from "../api";
 import { useUserStore } from "../store";
+import type { UserListResult } from "../types";
 
 export function UserListPage() {
   const { list, setList, loading, setLoading } = useUserStore();
@@ -12,7 +13,7 @@ export function UserListPage() {
     setLoading(true);
     getUserList()
       .then((res) => {
-        const data = res as { list: { id: string; username: string }[] };
+        const data = res as unknown as UserListResult;
         setList(data.list ?? []);
       })
       .catch(() => setList([]))
